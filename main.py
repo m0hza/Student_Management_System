@@ -17,8 +17,8 @@ class mainapp(tk.Tk):
 
 
 
-        registration_form = registrationForm(self)
-
+        self.registration_form = registrationForm(self).pack(side ='left' , fill='y',padx=10, pady=10)
+      
 
 
 
