@@ -2,11 +2,12 @@ import tkinter as tk
 from databaze import Database
 
 class registrationForm(tk.Frame):
-    def __init__(self, parent):
+    def __init__(self, parent,refreshListing_callback):
         super().__init__(parent,padx=10, pady=10)
         tk.Label(self, text="Full Name").pack()
         self.name_entry = tk.Entry(self)
         self.name_entry.pack()
+        self.refreshListing_callback = refreshListing_callback
         
         tk.Label(self, text="Email").pack()
         self.email_entry = tk.Entry(self)
@@ -34,11 +35,12 @@ class registrationForm(tk.Frame):
             Database.insert_student(name, email, age, gender)
             print("Student added")
             self.reset_fields()
+            self.refreshListing_callback()
         else:
             print("Please fill in all fields")
 
     def reset_fields(self):
-        self.name_entry.delete(0, 'end')
-        self.email_entry.delete(0, 'end')
-        self.age_spinbox.delete(0, 'end')
+        self.name_entry.delete(0, tk.END)
+        self.email_entry.delete(0, tk.END)
+        self.age_spinbox.delete(0, tk.END)
         self.gender_var.set(None)        
