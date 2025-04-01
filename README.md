@@ -18,7 +18,7 @@ A Python-based application designed to manage and streamline school operations. 
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/school-management-system.git
+    git clone https://github.com/m0hza/school-management-system.git
     ```
 2. Navigate to the project directory:
     ```bash
